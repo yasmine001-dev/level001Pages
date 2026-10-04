@@ -115,8 +115,20 @@ td:first-child{white-space:nowrap}
 
   <div class="item">
     <h3>الصورة <span class="tag">&lt;img&gt;</span></h3>
-    <p><code class="i">src</code> مسار الصورة. <code class="i">alt</code> نص بديل يظهر إن تعذّر تحميل الصورة، ويقرؤه قارئ الشاشة. الوسم فارغ بلا إغلاق.</p>
-    <pre style="margin-top:10px">&lt;img src="cat.jpg" alt="A cat on a sofa"&gt;</pre>
+    <p>الوسم فارغ بلا إغلاق، وأهم سماته:</p>
+    <table>
+      <tr><td><code class="i">src</code></td><td>مسار الصورة.</td></tr>
+      <tr><td><code class="i">alt</code></td><td>نص بديل يظهر إن تعذّر تحميل الصورة، ويقرؤه قارئ الشاشة.</td></tr>
+      <tr><td><code class="i">width</code></td><td>عرض الصورة بالبكسل.</td></tr>
+      <tr><td><code class="i">height</code></td><td>ارتفاع الصورة بالبكسل.</td></tr>
+    </table>
+    <div class="pair">
+      <pre>&lt;img src="cat.jpg"
+     alt="A cat on a sofa"
+     width="150"
+     height="100"&gt;</pre>
+      <div class="out"><svg width="150" height="100" viewBox="0 0 120 80" role="img" aria-label="A cat on a sofa"><rect width="120" height="80" fill="#cfe0ff"/><circle cx="60" cy="38" r="20" fill="#f4a261"/><polygon points="44,24 50,8 56,24" fill="#f4a261"/><polygon points="64,24 70,8 76,24" fill="#f4a261"/><circle cx="53" cy="36" r="3" fill="#222"/><circle cx="67" cy="36" r="3" fill="#222"/></svg></div>
+    </div>
   </div>
 
   <div class="item">
@@ -124,13 +136,13 @@ td:first-child{white-space:nowrap}
     <p>حاوية داخل السطر، لا أثر لها وحدها، وتُستخدم لتنسيق جزء من النص بـ CSS.</p>
     <div class="pair">
       <pre>&lt;p&gt;I love &lt;span class="hl"&gt;coding&lt;/span&gt;&lt;/p&gt;</pre>
-      <div class="out"><p>I love <span style="color:#d9480f;font-weight:700">coding</span></p></div>
+      <div class="out"><p>I love <span style="color:#d9480f;font-weight:700">coding</span> :))) </p></div>
     </div>
   </div>
 
   <div class="item">
     <h3>العنوان الوصفي <span class="tag">&lt;label&gt;</span></h3>
-    <p>نص يصف الحقل، ويرتبط به عبر السمة <code class="i">for</code> التي يجب أن تطابق <code class="i">id</code> الحقل؛ فيؤدي النقر عليه إلى تفعيل الحقل.</p>
+    <p>نص يصف حقل الإدخال </p>
     <div class="pair">
       <pre>&lt;label&gt;Name:
 &lt;input type="text"&gt; &lt;/label&gt;</pre>
