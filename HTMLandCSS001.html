@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ملخص HTML و CSS</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#F2F5FA; --surface:#FFFFFF; --ink:#14213D; --muted:#4A5873; --line:#D5DCE8;
+  --html:#D9480F; --html-soft:#FFE8DC; --css:#2549E8; --css-soft:#E3E9FF;
+  --code-bg:#0F1B33; --code-ink:#E8EEFF;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1220; --surface:#141E33; --ink:#EAF0FF; --muted:#A9B6D3; --line:#2A3858;
+    --html:#FF8A5B; --html-soft:#3A2218; --css:#8FA6FF; --css-soft:#1B2650; --code-bg:#080F1D;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1220; --surface:#141E33; --ink:#EAF0FF; --muted:#A9B6D3; --line:#2A3858;
+  --html:#FF8A5B; --html-soft:#3A2218; --css:#8FA6FF; --css-soft:#1B2650; --code-bg:#080F1D;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo","Segoe UI",Tahoma,sans-serif;line-height:1.8;font-size:17px}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 50px}
+header.top{padding:34px 0 8px}
+header.top h1{font-size:2.1rem;font-weight:800;margin:0 0 4px;line-height:1.3}
+header.top p{margin:0;color:var(--muted)}
+.part{margin-top:34px}
+.part > h2{font-size:1.5rem;font-weight:800;margin:0 0 12px;padding-right:12px;border-right:6px solid var(--html)}
+.css-part > h2{border-right-color:var(--css)}
+.item{background:var(--surface);border:1px solid var(--line);border-right:6px solid var(--html);border-radius:6px;padding:14px 18px;margin-bottom:14px}
+.css-part .item{border-right-color:var(--css)}
+.item > h3{margin:0 0 2px;font-size:1.15rem;font-weight:800;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.item > p{margin:2px 0}
+.tag{direction:ltr;unicode-bidi:isolate;font-family:Consolas,"Courier New",monospace;font-size:.92rem;font-weight:700;background:var(--html-soft);color:var(--html);padding:1px 10px;border-radius:4px}
+.css-part .tag{background:var(--css-soft);color:var(--css)}
+code.i{direction:ltr;unicode-bidi:isolate;font-family:Consolas,"Courier New",monospace;font-size:.9em;background:var(--code-bg);color:var(--code-ink);padding:0 6px;border-radius:4px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+@media (max-width:720px){.pair{grid-template-columns:1fr}}
+pre{direction:ltr;text-align:left;margin:0;background:var(--code-bg);color:var(--code-ink);padding:10px 14px;border-radius:6px;overflow-x:auto;font-family:Consolas,"Courier New",monospace;font-size:.88rem;line-height:1.6}
+.out{background:#fff;color:#111;border:1px solid var(--line);border-radius:6px;padding:8px 14px;overflow-x:auto;direction:ltr;text-align:left}
+.out h1{font-size:2em;margin:.2em 0}.out h2{font-size:1.5em;margin:.2em 0}.out h3{font-size:1.17em;margin:.2em 0}
+.out h4{font-size:1em;margin:.2em 0}.out h5{font-size:.83em;margin:.2em 0}.out h6{font-size:.67em;margin:.2em 0}
+.out h1,.out h2,.out h3,.out h4,.out h5,.out h6{font-weight:700;line-height:1.2}
+.out p{margin:.5em 0}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:5px 10px;text-align:right;vertical-align:top}
+th{background:var(--bg)}
+td:first-child{white-space:nowrap}
+.mistakes{margin:0;padding-right:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>ملخص HTML و CSS</h1>
+  <p>مرجع موجز لما تم شرحه في الحصة العملية.</p>
+</header>
+
+<section class="part">
+  <h2>أولًا: HTML</h2>
+
+  <div class="item">
+    <h3>العناوين <span class="tag">&lt;h1&gt; … &lt;h6&gt;</span></h3>
+    <p>ستة مستويات: h1 الأكبر وh6 الأصغر. يُستخدم h1 مرة واحدة للعنوان الرئيسي.</p>
+    <div class="pair">
+      <pre>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;</pre>
+      <div class="out"><h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>سطر جديد <span class="tag">&lt;br&gt;</span></h3>
+    <p>ينقل النص إلى سطر جديد. وسم فارغ لا يحتاج إلى وسم إغلاق.</p>
+    <div class="pair">
+      <pre>Ahmed&lt;br&gt;Cairo</pre>
+      <div class="out">Ahmed<br>Cairo</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>الفقرة <span class="tag">&lt;p&gt;&lt;/p&gt;</span></h3>
+    <p>فقرة نصية تفصلها مسافة تلقائية عمّا قبلها وبعدها.</p>
+    <div class="pair">
+      <pre>&lt;p&gt;First paragraph&lt;/p&gt;
+&lt;p&gt;Second paragraph&lt;/p&gt;</pre>
+      <div class="out"><p>First paragraph</p><p>Second paragraph</p></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>القوائم <span class="tag">&lt;ol&gt; &lt;ul&gt; &lt;li&gt;</span></h3>
+    <p><code class="i">ol</code> قائمة مرقّمة، و<code class="i">ul</code> قائمة نقطية، و<code class="i">li</code> يمثّل كل عنصر داخلها.</p>
+    <div class="pair">
+      <pre>&lt;ol&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+  &lt;li&gt;Apple&lt;/li&gt;
+  &lt;li&gt;Orange&lt;/li&gt;
+
+&lt;/ul&gt;</pre>
+      <div class="out"><ol><li>HTML</li><li>CSS</li></ol><ul><li>Apple</li><li>Orange</li></ul></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>الصورة <span class="tag">&lt;img&gt;</span></h3>
+    <p><code class="i">src</code> مسار الصورة. <code class="i">alt</code> نص بديل يظهر إن تعذّر تحميل الصورة، ويقرؤه قارئ الشاشة. الوسم فارغ بلا إغلاق.</p>
+    <pre style="margin-top:10px">&lt;img src="cat.jpg" alt="A cat on a sofa"&gt;</pre>
+  </div>
+
+  <div class="item">
+    <h3>الحاوية النصية <span class="tag">&lt;span&gt;</span></h3>
+    <p>حاوية داخل السطر، لا أثر لها وحدها، وتُستخدم لتنسيق جزء من النص بـ CSS.</p>
+    <div class="pair">
+      <pre>&lt;p&gt;I love &lt;span class="hl"&gt;coding&lt;/span&gt;&lt;/p&gt;</pre>
+      <div class="out"><p>I love <span style="color:#d9480f;font-weight:700">coding</span></p></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>العنوان الوصفي <span class="tag">&lt;label&gt;</span></h3>
+    <p>نص يصف الحقل، ويرتبط به عبر السمة <code class="i">for</code> التي يجب أن تطابق <code class="i">id</code> الحقل؛ فيؤدي النقر عليه إلى تفعيل الحقل.</p>
+    <div class="pair">
+      <pre>&lt;label&gt;Name:
+&lt;input type="text"&gt; &lt;/label&gt;</pre>
+      <div class="out"><label for="demo-user">Name:</label> <input type="text" id="demo-user"></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>حقل الإدخال <span class="tag">&lt;input&gt;</span></h3>
+    <p>وسم فارغ يتغيّر سلوكه بحسب السمة <code class="i">type</code>.</p>
+    <table>
+      <tr><td><code class="i">type="text"</code></td><td>حقل لكتابة نص عادي.</td></tr>
+      <tr><td><code class="i">type="email"</code></td><td>حقل للبريد الإلكتروني، ويتحقق المتصفح من وجود الرمز @.</td></tr>
+      <tr><td><code class="i">type="button"</code></td><td>زر، ونصه يؤخذ من <code class="i">value</code>.</td></tr>
+      <tr><td><code class="i">value</code></td><td>القيمة الابتدائية للحقل، أو النص الظاهر على الزر.</td></tr>
+    </table>
+    <div class="pair">
+      <pre>&lt;input type="text" value="Ahmed"&gt;
+&lt;input type="email"&gt;
+&lt;input type="button" value="Send"&gt;</pre>
+      <div class="out"><input type="text" value="Ahmed"><br><br><input type="email"><br><br><input type="button" value="Send"></div>
+    </div>
+  </div>
+</section>
+
+<section class="part css-part">
+  <h2>ثانيًا: CSS</h2>
+
+  <div class="item">
+    <h3>المحدِّدات <span class="tag">tag / .class / #id</span></h3>
+    <p>الصيغة العامة: <code class="i">selector { property: value; }</code></p>
+    <table>
+      <tr><td><code class="i">p { }</code></td><td>محدِّد وسم: يستهدف كل العناصر من هذا النوع.</td></tr>
+      <tr><td><code class="i">.red { }</code></td><td>محدِّد صنف (class): يستهدف كل عنصر يحمل هذا الصنف، ويمكن تكراره.</td></tr>
+      <tr><td><code class="i">#main { }</code></td><td>محدِّد معرّف (id): يستهدف عنصرًا واحدًا فقط، ولا يُكرَّر.</td></tr>
+    </table>
+    <div class="pair">
+      <pre>p        { font-size: 20px; }
+.red     { color: crimson; }
+#special { color: green; }</pre>
+      <div class="out"><p style="font-size:20px">Tag</p><p style="font-size:20px;color:crimson">Class</p><p style="font-size:20px;color:#0a7d3b">ID</p></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>لون الحروف <span class="tag">color</span></h3>
+    <p>يغيّر لون النص، بالاسم (<code class="i">red</code>) </p>
+    <div class="pair">
+      <pre>p { color: blue; }</pre>
+      <div class="out"><p style="color:#2549e8">Blue text</p></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>لون الخلفية <span class="tag">background-color</span></h3>
+    <p>يغيّر لون خلفية العنصر لا لون النص.</p>
+    <div class="pair">
+      <pre>p { background-color: #ffd43b; }</pre>
+      <div class="out"><p style="background-color:#ffd43b;display:inline-block;padding:4px 10px">Yellow background</p></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>سُمك الخط <span class="tag">font-weight</span></h3>
+    <p>القيم: <code class="i">normal</code> عادي، <code class="i">bold</code> غامق، أو أرقام من <code class="i">100</code> إلى <code class="i">900</code>.</p>
+    <div class="pair">
+      <pre>.a { font-weight: normal; }
+.b { font-weight: bold; }</pre>
+      <div class="out"><p style="font-weight:normal;margin:.2em 0">Normal</p><p style="font-weight:bold;margin:.2em 0">Bold</p></div>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>حجم الخط <span class="tag">font-size</span></h3>
+    <p>يحدد حجم الحروف، وأشهر وحداته <code class="i">px</code>، وتُكتب مباشرة بعد الرقم.</p>
+    <div class="pair">
+      <pre>.small { font-size: 14px; }
+.big   { font-size: 28px; }</pre>
+      <div class="out"><p style="font-size:14px;margin:.2em 0">14px</p><p style="font-size:28px;margin:.2em 0">28px</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="part">
+  <h2>أخطاء شائعة وانت بتحل</h2>
+  <div class="item">
+    <ul class="mistakes">
+      <li>نسيان <code class="i">;</code> في آخر كل سطر CSS.</li>
+      <li>نسيان إقفال التاج (مثلًا <code class="i">&lt;/p&gt;</code>)، مع ملاحظة إن <code class="i">br</code> و <code class="i">img</code> و <code class="i">input</code> مالهمش إقفال.</li>
+      <li>الخلط بين <code class="i">.</code> للـ class و <code class="i">#</code> للـ id.</li>
+      <li>كتابة <code class="i">for</code> في الـ label مختلفة عن <code class="i">id</code> الـ input.</li>
+      <li>كتابة <code class="i">font-size: 20</code> من غير <code class="i">px</code>.</li>
+      <li>استخدام <code class="i">color</code> وانت عايز تغير الخلفية (المطلوب <code class="i">background-color</code>).</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
